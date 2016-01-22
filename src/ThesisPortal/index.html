@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app" manifest="poc.appcache">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/angular-toastr.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/layout.css" rel="stylesheet" />
+    <link href="Content/presentation.css" rel="stylesheet" />
+</head>
+<body>
+    <div><ui-view /></div>
+
+    <div id="boot-splash" data-ng-if="false">
+        <div class="modal-backdrop" />
+        <div class="modal-dialog modal-lg page-splash ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Loading</h3>
+                </div>
+                <div class="text-center modal-body">
+                    <h1>Please wait...</h1>
+                </div>
+                <div class="modal-footer">
+                    <div class="foax-progress progress progress-striped"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-sanitize.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <script src="Scripts/moment.js"></script>
+    <script src="Scripts/angular-moment.js"></script>
+    <script src="Scripts/angular-toastr.tpls.js"></script>
+
+    <script src="Scripts/indexeddbshim.js"></script>
+
+    <script src="Scripts/angular-indexed-db.js"></script>
+
+
+
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/common/utils.js"></script>
+    <script src="app/common/indexeddb.config.js"></script>
+
+    <script src="app/directives/cc.sidebar.directive.js"></script>
+
+    <script src="app/auth/authentication.service.js"></script>
+    <script src="app/auth/principal.service.js"></script>
+    <script src="app/auth/login.service.js"></script>
+    <script src="app/auth/login.js"></script>
+
+    <script src="app/jobs/job.service.js"></script>
+    <script src="app/jobs/jobs.js"></script>
+    <script src="app/jobs/job.checkout.js"></script>
+
+    <script src="app/assets/asset.mru.js"></script>
+    <script src="app/assets/assets.js"></script>
+    <script src="app/assets/assets.sidebar.js"></script>
+    <script src="app/assets/assets.list.js"></script>
+    <script src="app/assets/asset.details.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<div>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Filter Assets</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Manage your assets from here...</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Area:</label>
+                                <select class="form-control"
+                                        data-ng-disabled="vm.noAssetsAssigned || !vm.assetAreas.length"
+                                        data-ng-model="vm.chosenArea"
+                                        data-ng-options="area for area in vm.assetAreas | orderBy:''"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default" data-ng-show="vm.haveSearched || vm.noAssetsAssigned">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Assets</h3>
+                </div>
+                <div class="panel-body">
+                    <div data-ng-show="vm.noAssetsAssigned">
+                        <h3 class="text-warning text-center">No assets have been assigned to this project.</h3>
+                    </div>
+                    <ul class="list-unstyled asset-listing nav nav-stacked">
+                        <li data-ng-repeat="asset in vm.assets | limitTo:10 | orderBy:['area','name']">
+                            <a class="asset" data-ui-sref="job.asset.details({assetId:asset.id})"><span data-ng-if="asset.serviceArea">{{asset.serviceArea}}\</span>{{asset.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

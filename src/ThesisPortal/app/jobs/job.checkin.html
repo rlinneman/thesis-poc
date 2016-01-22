@@ -1,0 +1,31 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <p class="panel-title">Check In</p>
+    </div>
+    <div class="panel-body">
+        <h3>{{vm.name}}</h3>
+        There may be conflicts to resolve... lets find out.
+
+        <div class="alert" data-ng-if="vm.lockedBy" data-ng-class="{'alert-danger':vm.lockedByOther, 'alert-success':vm.lockedByMe}">
+            <span data-ng-show="vm.lockedBy" data-ng-class="{'text-danger':vm.lockedByOther, 'text-success':vm.lockedByMe}">
+                <span class="glyphicon glyphicon-lock"></span>
+                <span data-ng-show="vm.lockedByOther">
+                    Currently locked by {{vm.lockedBy}}<span data-ng-if="vm.lockedOn"> since {{vm.lockedOn | amDateFormat:'dddd, MMMM Do'}}</span>.<br />
+                    You will be unable to save any changes to the server until the lock has been cleared.
+                </span>
+                <span data-ng-show="vm.lockedByMe">
+                    You currently hold exclusive write access to this project,  any conflicts
+                    incurred before you acquired this lock may still result in conflicts to reconcile.
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="panel-footer  clearfix">
+        <div class="btn-block">
+            <div class="pull-right">
+                <a ui-sref="job.details" class="btn btn-default">Back to project</a>
+                <a data-ng-disabled="vm.lockedByOther" ng-click="vm.checkin()" class="btn btn-primary">Check In</a>
+            </div>
+        </div>
+    </div>
+</div>

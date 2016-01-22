@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Filter Assets</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Manage your assets from here...</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Area:</label>
+                            <select class="form-control" data-ng-model="vm.chosenArea" data-ng-options="area for area in vm.assetAreas | orderBy:''">
+                                <option>--- None ---</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

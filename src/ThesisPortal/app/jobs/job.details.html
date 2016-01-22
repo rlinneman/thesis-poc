@@ -1,0 +1,46 @@
+﻿<div class="panel " data-ng-class="vm.offline?'panel-success':'panel-default'">
+    <div class="panel-heading clearfix">
+        <div class="panel-title">
+            <h4>{{vm.name}}</h4>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="alert" data-ng-if="vm.lockedBy" data-ng-class="{'alert-danger':vm.lockedByOther, 'alert-success':vm.lockedByMe}">
+            <span data-ng-show="vm.lockedBy" data-ng-class="{'text-danger':vm.lockedByOther, 'text-success':vm.lockedByMe}">
+                <span class="glyphicon glyphicon-lock"></span>
+                <span data-ng-show="vm.lockedByOther">
+                    Currently locked by {{vm.lockedBy}}<span data-ng-if="vm.lockedOn"> since {{vm.lockedOn | amDateFormat:'dddd, MMMM Do'}}</span>.<br />
+                    You will be unable to save any changes to the server until the lock has been cleared.
+                </span>
+                <span data-ng-show="vm.lockedByMe">
+                    You currently hold exclusive write access to all data in your cache.<br />
+                    Be conscientious of your fellow workers and don't keep this locked for too long.<span class="fa-lightbulb-o fa"></span>
+                </span>
+            </span>
+        </div>
+        <div class="alert alert-info" data-ng-if="vm.offline">
+            <p>
+                <span class="glyphicon glyphicon-info"></span>
+                This job was downloaded to this device <span am-time-ago="vm.offlineSince"></span>.
+            </p>
+        </div>
+
+        <div>
+            <address>
+                {{vm.street1}}<br />
+                <span data-ng-show="vm.street2">{{vm.street2}}<br /></span>
+                {{vm.city}}, {{vm.state}} {{vm.postalCode}}
+            </address>
+        </div>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <div class="btn-block">
+                <a class="btn btn-default" ui-sref="job.assets.list">Assets</a>
+                <a class="btn btn-default" data-ng-if="vm.offline" data-ui-sref="job.checkin"><span class="glyphicon glyphicon-cloud-upload"></span> Check In</a>
+                <a class="btn btn-default" data-ng-if="!vm.offline" data-ui-sref="job.checkout"><span class="glyphicon glyphicon-cloud-download"></span> Check Out</a>
+                <a class="btn btn-default" data-ng-if="vm.offline" data-ui-sref="job.abandon"><span class="glyphicon glyphicon-warning-sign"></span> Abandon</a>
+            </div>
+        </div>
+    </div>
+</div>

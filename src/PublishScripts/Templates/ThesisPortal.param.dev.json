@@ -1,0 +1,32 @@
+{
+  "siteName": {
+    "value": "ThesisPortal"
+  },
+  "hostingPlanName": {
+    "value": "ThesisPortal"
+  },
+  "siteLocation": {
+    "value": "West US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "serverName": {
+    "value": "rlinneman-thesisportal"
+  },
+  "serverLocation": {
+    "value": "West US"
+  },
+  "administratorLogin": {
+    "value": "rlinneman-thesisportal-user"
+  },
+  "administratorLoginPassword": {
+    "value": "WhereInTheWorldIsCarmenSandiego4$"
+  },
+  "databaseName": {
+    "value": "ThesisPortal_db"
+  }
+}

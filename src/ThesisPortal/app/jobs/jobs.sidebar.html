@@ -1,0 +1,18 @@
+﻿<div data-cc-sidebar>
+    <div class="sidebar-filler"></div>
+    <div class="sidebar-dropdown"><a href="#">Menu</a></div>
+    <div class="sidebar-inner">
+        <div class="sidebar-widget">
+        </div>
+
+        <ul class="navi">
+            <!--<li ng-class="{ active: $state.includes('jobs.list') }"><a ui-sref="jobs.list">All Jobs</a></li>-->
+            <li><!--<h5>Offline Jobs</h5>-->Offline Jobs</li>
+            <li data-ng-hide="(jobs | filter:{offline:true}).length"><h4 class="text-danger text-center">None</h4></li>
+
+            <li ng-repeat="job in jobs | filter:{offline:true} | orderBy : 'offlineSince' | limitTo:5" ui-sref-active="active">
+                <a ui-sref="job.details({jobId:job.id})">{{job.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

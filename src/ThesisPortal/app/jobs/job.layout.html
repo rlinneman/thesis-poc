@@ -1,0 +1,61 @@
+﻿<div>
+    <div>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span data-ui-view="navheader">
+                        <a class="navbar-brand" data-ui-sref="jobs.list">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                        <a class="navbar-brand" data-ui-sref="job.details">
+                            {{job.name||'PoC'}}
+                            <span>
+                                <span class="glyphicon glyphicon-ok-sign" data-ng-show="job.offline"></span>
+                                <span class="glyphicon glyphicon-lock" data-ng-show="job.lockedBy" data-ng-class="{'text-danger':vm.lockedByOther}"></span>
+                            </span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div>
+    <div data-cc-sidebar>
+        <div class="sidebar-filler"></div>
+        <div class="sidebar-dropdown"><a href="#">Menu</a></div>
+        <div class="sidebar-inner">
+            <div class="sidebar-widget">
+            </div>
+
+            <ui-view name="sidebar">
+                <ul class="navi">
+                    <li><a ui-sref="jobs.list">Back to All Jobs</a></li>
+                    <li><a ui-sref="job.assets.list">Assets</a></li>
+
+
+                    <li data-ng-if="job.offline">
+                        <a data-ui-sref="job.checkin">
+                            <div class="pull-right">
+                                <span class="glyphicon glyphicon-cloud-upload pull-right"></span>
+                            </div> Check In
+                        </a>
+                    </li>
+                    <li data-ng-if="!job.offline">
+                        <a data-ui-sref="job.checkout">
+                            <div class="pull-right">
+                                <span class="glyphicon glyphicon-cloud-download pull-right"></span>
+                            </div> Check Out
+                        </a>
+                    </li>
+                    <li data-ng-if="job.offline">
+                        <a data-ui-sref="job.abandon"><div class="pull-right"><span class="glyphicon glyphicon-warning-sign"></span></div> Abandon</a>
+                    </li>
+                </ul>
+            </ui-view>
+        </div>
+    </div>
+</div>
+<section class="main content container-fluid v-fill">
+    <ui-view />
+</section>

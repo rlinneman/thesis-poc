@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThesisPortal", "ThesisPortal\ThesisPortal.csproj", "{675EED13-59F0-4F34-B2A3-09398BC1193C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{99AABF78-CFA6-4AB5-B313-499BBA413D1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{CC035C1B-D305-4F4F-B9A1-4832B31FEB29}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{1471899E-912D-4D6A-BA40-C01F75E4256E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\ThesisPortal.json = PublishScripts\Templates\ThesisPortal.json
+		PublishScripts\Templates\ThesisPortal.param.dev.json = PublishScripts\Templates\ThesisPortal.param.dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rel.Data", "Rel.Data\Rel.Data.csproj", "{216590BA-F687-4CB0-A72C-E891D6937A8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rel.Data.Ef6", "Rel.Data.Ef6\Rel.Data.Ef6.csproj", "{3BA1F53E-BC92-49C7-86AC-FBAFE3565BC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rel.Merge", "Rel.Merge\Rel.Merge.csproj", "{77828181-3D8E-4A42-B776-A7EFEA901BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rel.Merge.Test", "..\test\Rel.Merge.Test\Rel.Merge.Test.csproj", "{DAB194E4-0B7B-42B4-9231-63B13FBF7E16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2F79F546-FA3F-4F6A-AF37-CB086D3B0914}"
+	ProjectSection(SolutionItems) = preProject
+		..\test\Rel.Data.Merge.Test\ExceptionAssert.cs = ..\test\Rel.Data.Merge.Test\ExceptionAssert.cs
+		..\test\Rel.Data.Merge.Test\TestException.cs = ..\test\Rel.Data.Merge.Test\TestException.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rel.Data.Test", "..\test\Rel.Data.Test\Rel.Data.Test.csproj", "{02C5D20A-48B9-4749-B184-441C465DCBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProofingTests", "..\test\ProofingTests\ProofingTests.csproj", "{0B7E5EB1-E661-410D-A8C9-D027928F6629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{675EED13-59F0-4F34-B2A3-09398BC1193C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675EED13-59F0-4F34-B2A3-09398BC1193C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675EED13-59F0-4F34-B2A3-09398BC1193C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675EED13-59F0-4F34-B2A3-09398BC1193C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{216590BA-F687-4CB0-A72C-E891D6937A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216590BA-F687-4CB0-A72C-E891D6937A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216590BA-F687-4CB0-A72C-E891D6937A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216590BA-F687-4CB0-A72C-E891D6937A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA1F53E-BC92-49C7-86AC-FBAFE3565BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA1F53E-BC92-49C7-86AC-FBAFE3565BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA1F53E-BC92-49C7-86AC-FBAFE3565BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA1F53E-BC92-49C7-86AC-FBAFE3565BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77828181-3D8E-4A42-B776-A7EFEA901BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77828181-3D8E-4A42-B776-A7EFEA901BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77828181-3D8E-4A42-B776-A7EFEA901BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77828181-3D8E-4A42-B776-A7EFEA901BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB194E4-0B7B-42B4-9231-63B13FBF7E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB194E4-0B7B-42B4-9231-63B13FBF7E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB194E4-0B7B-42B4-9231-63B13FBF7E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB194E4-0B7B-42B4-9231-63B13FBF7E16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C5D20A-48B9-4749-B184-441C465DCBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C5D20A-48B9-4749-B184-441C465DCBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C5D20A-48B9-4749-B184-441C465DCBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C5D20A-48B9-4749-B184-441C465DCBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7E5EB1-E661-410D-A8C9-D027928F6629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7E5EB1-E661-410D-A8C9-D027928F6629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7E5EB1-E661-410D-A8C9-D027928F6629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7E5EB1-E661-410D-A8C9-D027928F6629}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99AABF78-CFA6-4AB5-B313-499BBA413D1E} = {2F79F546-FA3F-4F6A-AF37-CB086D3B0914}
+		{CC035C1B-D305-4F4F-B9A1-4832B31FEB29} = {99AABF78-CFA6-4AB5-B313-499BBA413D1E}
+		{1471899E-912D-4D6A-BA40-C01F75E4256E} = {99AABF78-CFA6-4AB5-B313-499BBA413D1E}
+		{DAB194E4-0B7B-42B4-9231-63B13FBF7E16} = {2F79F546-FA3F-4F6A-AF37-CB086D3B0914}
+		{02C5D20A-48B9-4749-B184-441C465DCBA6} = {2F79F546-FA3F-4F6A-AF37-CB086D3B0914}
+		{0B7E5EB1-E661-410D-A8C9-D027928F6629} = {2F79F546-FA3F-4F6A-AF37-CB086D3B0914}
+	EndGlobalSection
+EndGlobal

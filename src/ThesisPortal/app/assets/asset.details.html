@@ -1,0 +1,161 @@
+﻿<form name="userForm" data-ng-submit="vm.submit(userForm, asset)">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span data-ng-if="vm.serviceArea">{{vm.serviceArea}}\</span>{{vm.name}}</h3>
+        </div>
+        <div class="panel-body container-fluid">
+            <fieldset>
+                <legend>Asset Information</legend>
+                <div class="form-group">
+                    <label class="control-label">ID</label>
+                    <input class="form-control" type="number"  step="any"disabled data-ng-model="asset.id" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Field Level Reconciliation</legend>
+
+                <p>
+                    The following fields are configured for per field conflict validations. The
+                    descriptions provided are only applied if the record is in conflict at the time
+                    of changeset processing.
+                </p><br /><p>
+                    If a record is not in conflict, standard business
+                    validation logic <em>may</em> be applied to ensure record integrity.  For the
+                    purposes of this project, standard business validation rules regarding validity
+                    of a data is largely omitted.
+                </p><br />
+                <p>
+                    Text under the field written in <span class="small">small</span> print is
+                    specific to the implementation of the field identified.  This text is
+                    there to provide clarity as to what will make an attempt to write succeed
+                    or fail but does not guarantee success or failure if followed.  This
+                    indeterminacy results from the optimistic locking strategy used and is
+                    what motivates the ad-hoc optimistic to pessimistic lock promotion scheme.
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tolerance</legend>
+                <p>
+                    All tolerance classed reconciliation methods are numeric in nature and the implementations support:
+                    <dl>
+                        <dt>Size of change</dt>
+                        <dd>May be a <em>maximum</em> or <em>minimum</em>.</dd>
+                        <dt>Bounds of size</dt>
+                        <dd>May be <em>inclusive</em> or <em>exclusive</em> on either end.</dd>
+                        <dt>Monotonicity</dt>
+                        <dd>May support <em>monotonically increasing</em> or <em>decreasing</em> behaviors.</dd>
+                    </dl>
+                </p>
+                <p class="text-warning">
+                    NOTE: Please keep in mind that all these rules only take effect <em>IF</em>
+                    a conflict is detected and does not necessarily share domain space with
+                    traditional object model validation rules.
+                </p>
+
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label class="control-label">% Tolerance</label>
+                        <p class="small">
+                            Accepts values which are within &#177;10% of the <em>current</em> value.
+                        </p>
+                        <p>
+                            Percent Tolerance refers to a relative volume of variance permitted on a record.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.percentTolerance"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.percentTolerance}}</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label>Static Tolerance</label>
+                        <p class="small">
+                            Accepts values which are within &#177;50 units of the <em>current</em> value.
+                        </p>
+                        <p>
+                            Static Tolerance a fixed maximum or minimum step size.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.staticTolerance"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.staticTolerance}}</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label>Monotonic Tolerance</label>
+                        <p class="small">
+                            Accepts values which are in the range of (0, 50] units of the <em>current</em> value.
+                        </p>
+                        <p>
+                            This field also demonstrates how these rules may be organized to
+                            provide monotonically increasing state only during conflict resolution.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.monotonicTolerance"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.monotonicTolerance}}</span>
+                    </div>
+                </div>
+                <!-- Skipped the Modified time stamp to get this out the door -->
+                <!--<div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label>Minimum Decay</label>
+                        <p class="small">
+                            Accepts any value, provided it has not been modified by another user
+                            within the last 3 minutes.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.minimumDecay"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.minimumDecay}}</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label>Minimum and Maximum Decay</label>
+                        <p class="small">
+                            Accepts any value, provided it has not been modified by another user
+                            within the last 3 minutes <em>and</em> has been modified by
+                            another user within the last 10.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.maximumAndMinimumDecay"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.maximumAndMinimumDecay}}</span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-9 col-sm-push-3">
+                        <label>Minimum Decay + Maximum Decay + Minimum Step Size + Maximum Tolerance</label>
+                        <p class="small">
+                            Accepts any value, provided it has not been modified by another user
+                            within the last 3 minutes <em>and</em> has been modified by
+                            another user within the last 10 and <em>and</em> is at least &#177;50
+                            units from the current value <em>or</em> is at most 10% greater than
+                            the current value.
+                        </p>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-9">
+                        <input type="number"  step="any"class="form-control" data-ng-model="asset.maxMinDecayWithStepAndTol"/>
+                        <span data-ng-if="vm.reconcile">Current: {{current.maxMinDecayWithStepAndTol}}</span>
+                    </div>
+                </div>-->
+            </fieldset>
+        </div>
+    </div>
+    <div class="panel-footer panel-default clearfix">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" data-ng-disabled="userForm.$pristine" value="Save" />
+            <input type="button" class="btn btn-default" data-ng-click="vm.reset(userForm, asset)" value="Reset" />
+        </div>
+    </div>
+</form>

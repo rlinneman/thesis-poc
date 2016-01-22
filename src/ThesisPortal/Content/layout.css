@@ -1,0 +1,18 @@
+﻿html,body{height:100%;}
+body {
+        padding-top: 50px;
+    }
+.main.content.container-fluid.v-fill{
+    margin-left:200px;
+    padding-top:24px;
+}
+
+
+
+@media (max-width: 767px) {
+
+.main.content.container-fluid.v-fill{
+    margin-left:0;
+    padding-top:6px;
+}
+}

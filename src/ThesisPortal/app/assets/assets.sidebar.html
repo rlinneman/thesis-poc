@@ -1,0 +1,10 @@
+﻿<ul class="navi">
+    <li><a ui-sref="job.details">{{job.name}}</a></li>
+    <li><a ui-sref="jobs.list">Back to All Jobs</a></li>
+
+    <li class="active"><a data-ui-sref="job.assets.list">Assets</a></li>
+
+    <li ng-repeat="asset in vma.mru | limitTo:7" ui-sref-active="active">
+        <a ui-sref="job.asset.details({assetId:asset.id})" title="{{asset.serviceArea?asset.serviceArea.concat('\\'):''}}">{{asset.serviceArea?asset.serviceArea.concat('\\'):''}}{{asset.name}}</a>
+    </li>
+</ul>

@@ -1,0 +1,32 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <p class="panel-title">Check out</p>
+    </div>
+    <div class="panel-body">
+        <h3>{{vm.name}}</h3>
+        Checking out this job will allow you to work on it in remote areas with little or no connectivity.
+
+        <div class="alert" data-ng-if="vm.lockedBy" data-ng-class="{'alert-danger':vm.lockedByOther, 'alert-success':vm.lockedByMe}">
+            <span data-ng-show="vm.lockedBy" data-ng-class="{'text-danger':vm.lockedByOther, 'text-success':vm.lockedByMe}">
+                <span class="glyphicon glyphicon-lock"></span>
+                <span data-ng-show="vm.lockedByOther">
+                    Currently locked by {{vm.lockedBy}}<span data-ng-if="vm.lockedOn"> since {{vm.lockedOn | amDateFormat:'dddd, MMMM Do'}}</span>.<br />
+                    You will be unable to save any changes to the server until the lock has been cleared.
+                </span>
+                <span data-ng-show="vm.lockedByMe">
+                    You currently hold exclusive write access to this project.<br />
+                    Be conscientious of your fellow workers and don't keep this locked for too long.<span class="fa-lightbulb-o fa"></span>
+                </span>
+            </span>
+        </div>
+
+    </div>
+    <div class="panel-footer  clearfix">
+        <div class="btn-block">
+            <div class="pull-right">
+                <a ui-sref="job.details" class="btn btn-default">Back to project</a>
+                <a ng-click="vm.checkout()" class="btn btn-primary">Check out</a>
+            </div>
+        </div>
+    </div>
+</div>

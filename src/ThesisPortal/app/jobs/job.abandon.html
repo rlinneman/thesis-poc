@@ -1,0 +1,20 @@
+﻿<div class="panel panel-danger">
+    <div class="panel-heading">
+        <p class="panel-title">Abandon</p>
+    </div>
+    <div class="panel-body  panel-danger">
+        <h3>{{vm.name}}</h3>
+        Abandoning this job will <strong class="text-danger">delete</strong> all local cache data for it.
+        This operation can not be undone. Are you sure you want to do this?
+
+        <p>How do you wish to proceed?</p>
+    </div>
+    <div class="panel-footer panel-danger clearfix">
+        <div class="pull-right">
+            <div class="btn-block">
+                <a ui-sref="job.details" class="btn btn-default">Get me out of here</a>
+                <a ng-click="vm.abandon()" class="btn btn-danger">Lets do this</a>
+            </div>
+        </div>
+    </div>
+</div>
